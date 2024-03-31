@@ -26,6 +26,9 @@ const app = express()
 const http = require('http').Server(app)
 const path = require('path')
 
+// Add api for Softeher
+require('./softether/routes.js')(app);
+
 // set up rate limiter: maximum of fifty requests per minute
 const RateLimit = require('express-rate-limit')
 const limiter = RateLimit({
