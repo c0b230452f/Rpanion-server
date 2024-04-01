@@ -23,11 +23,11 @@ const appRoot = require('app-root-path')
 const settings = require('settings-store')
 
 const app = express()
+
 const http = require('http').Server(app)
 const path = require('path')
-
-// Add api for Softeher
-require('./softether/routes.js')(app);
+const softetherRoutes = require("./softether/routes.js");
+console.log('11')
 
 // set up rate limiter: maximum of fifty requests per minute
 const RateLimit = require('express-rate-limit')
@@ -131,6 +131,11 @@ app.use(bodyParser.json())
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, '..', '/build')))
+
+// Softether VPN routes
+app.use('/api/softether', softetherRoutes)
+
+console.log('hoge')
 
 // Serve the vpn zerotier info
 app.get('/api/vpnzerotier', (req, res) => {
@@ -894,6 +899,3 @@ http.listen(port, () => {
   console.log('Express server is running on localhost:' + port)
   winston.info('Express server is running on localhost:' + port)
 })
-
-// Export the app instance for testing purposes
-module.exports = app

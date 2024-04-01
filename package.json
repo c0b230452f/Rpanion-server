@@ -48,7 +48,7 @@
     "lint": "eslint .",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
-    "service": "node ./server/index.js",
+    "service": "DEBUG=express:* node ./server/index.js",
     "dev": "run-p server start"
   },
   "proxy": "http://localhost:3001",
