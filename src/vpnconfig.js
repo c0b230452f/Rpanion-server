@@ -20,7 +20,7 @@ class VPNPage extends basePage {
       error: null,
       infoMessage: null,
       selectedVPN: { label: 'Softether', value: 'softether' },
-      vpnOptions: [{label: 'Softether', value: 'softether' }, { label: 'Zerotier', value: 'zerotier' }, { label: 'Wireguard', value: 'wireguard' }],
+      vpnOptions: [{label: 'Softether', value: 'softether' }],
       selVPNInstalled: false,
       selVPNActive: false,
       newZerotierKey: "",
@@ -214,7 +214,7 @@ class VPNPage extends basePage {
 	};
 
   renderTitle () {
-    return 'VPN'
+    return 'VPN設定'
   }
 
   renderContent () {

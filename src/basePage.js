@@ -55,11 +55,11 @@ class basePage extends Component {
   render() {
     let { loading, usedSocketIO, socketioStatus, waiting, error, infoMessage } = this.state;
     return (
-      <div>
+      <div className='content-wrapper'>
         <Helmet>
           <title>{this.renderTitle()}</title>
         </Helmet>
-        <h1>{this.renderTitle()}</h1>
+        <h1 className='page-title'>{this.renderTitle()}</h1>
         <div style={{ display: (loading) ? "block" : "none" }}>
           <Spinner animation="border" role="status" >
           </Spinner>

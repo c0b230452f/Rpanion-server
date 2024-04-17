@@ -53,7 +53,7 @@ class LoggerPage extends basePage {
   }
 
   renderTitle() {
-    return "Flight Log Browser";
+    return "フライトログ";
   }
 
   //create a html table from a list of logfiles
@@ -116,7 +116,7 @@ class LoggerPage extends basePage {
         </Table>
         <br />
         <h3>Bin Logs</h3>
-        <p>This requires the <code>LOG_BACKEND_TYPE</code> parameter in ArduPilot set to <code>Mavlink</code>. A high baudrate to the flight controller (921500 or greater) is required.</p>
+        <p>This requires the <code>LOG_BACKEND_TYPE</code> parameter in ArduPilot set to <code>Mavlink</code>. A high baudrate to the flight controller (921600 or greater) is required.</p>
         <div className="form-group row" style={{ marginBottom: '5px' }}>
           <div className="col-sm-8">
           <Button id='binlog' onClick={this.clearLogs}>Clear inactive logs</Button>

@@ -9,20 +9,27 @@ import NTRIPPage from './ntripcontroller.js'
 import VPN from './vpnconfig'
 
 import Logo from './images/logo.webp'
+import { FaHome } from 'react-icons/fa'
+import { AiFillDatabase } from "react-icons/ai"
+import { GiCube } from "react-icons/gi"
+import { RiGpsFill } from "react-icons/ri"
+import { MdOutlineVpnLock } from "react-icons/md"
 
 function AppRouter () {
   return (
     <div id="wrapper" className="d-flex">
       <div id="sidebar-wrapper" className="bg-light border-right">
-      <div id="sidebarheading" className="sidebar-heading">
-        <img src={Logo} width="100px" />
-      </div>
+        <div id="sidebarheading" className="sidebar-heading">
+          <div className='logo-wrapper'>
+            <img src={Logo} className='logo' />
+          </div>
+        </div>
         <div id="sidebar-items" className="list-group list-group-flush">
-          <Link className='list-group-item list-group-item-action bg-light' to="/">Home</Link>
-          <Link className='list-group-item list-group-item-action bg-light' to="/flightlogs">Flight Logs</Link>
-          <Link className='list-group-item list-group-item-action bg-light' to="/controller">Flight Controller</Link>
-          <Link className='list-group-item list-group-item-action bg-light' to="/ntrip">NTRIP Config</Link>
-          <Link className='list-group-item list-group-item-action bg-light' to="/vpn">VPN Config</Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/"><FaHome className='menu-icon' /><span class="text">ホーム</span></Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/flightlogs"><AiFillDatabase className='menu-icon' /><span class="text">フライトログ</span></Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/controller"><GiCube className='menu-icon' /><span class="text">フライトコントローラー</span></Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/ntrip"><RiGpsFill className='menu-icon' /><span class="text">NTRIP接続</span></Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/vpn"><MdOutlineVpnLock className='menu-icon' /><span class="text">VPN設定</span></Link>
         </div>
       </div>
 
