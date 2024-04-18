@@ -361,7 +361,7 @@ class FCDetails {
     // only restart the mavlink processor if it's a new link,
     // not a reconnect attempt
     if (this.m === null) {
-      this.m = new mavManager(this.activeDevice.mavversion.value, '127.0.0.1', 14540, this.enableDSRequest)
+      this.m = new mavManager(2, '127.0.0.1', 14540, this.enableDSRequest)
       this.m.eventEmitter.on('gotMessage', (packet, data) => {
         // got valid message - send on to attached classes
         this.previousConnection = true
@@ -423,15 +423,15 @@ class FCDetails {
       }
     }
     // if the serial console or modemmanager are active on the Pi, return error
-    if (this.isModemManagerInstalled()) {
-      retError = Error('The ModemManager package is installed. This must be uninstalled (via sudo apt remove modemmanager), due to conflicts with serial ports')
-    }
-    if (fs.existsSync('/boot/cmdline.txt') && isPi()) {
-      const data = fs.readFileSync('/boot/cmdline.txt', { encoding: 'utf8', flag: 'r' })
-      if (data.includes('console=serial0')) {
-        retError = Error('Serial console is active on /dev/serial0. Use raspi-config to deactivate it')
-      }
-    }
+    // if (this.isModemManagerInstalled()) {
+    //   retError = Error('The ModemManager package is installed. This must be uninstalled (via sudo apt remove modemmanager), due to conflicts with serial ports')
+    // }
+    // if (fs.existsSync('/boot/cmdline.txt') && isPi()) {
+    //   const data = fs.readFileSync('/boot/cmdline.txt', { encoding: 'utf8', flag: 'r' })
+    //   if (data.includes('console=serial0')) {
+    //     retError = Error('Serial console is active on /dev/serial0. Use raspi-config to deactivate it')
+    //   }
+    // }
     // for the Ras Pi's inbuilt UART
     if (fs.existsSync('/dev/serial0') && isPi()) {
       this.serialDevices.push({ value: '/dev/serial0', label: '/dev/serial0', pnpId: '/dev/serial0' })
