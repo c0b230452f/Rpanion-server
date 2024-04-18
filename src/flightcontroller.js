@@ -45,8 +45,9 @@ class FCPage extends basePage {
   }
 
   componentDidMount() {
-    fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state) });
-    fetch(`/api/FCOutputs`).then(response => response.json()).then(state => { this.setState(state); this.loadDone() });
+    // fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state) });
+    // fetch(`/api/FCOutputs`).then(response => response.json()).then(state => { this.setState(state); this.loadDone() });
+    this.loadDone();
   }
 
   handleSerialPortChange = (value, action) => {
@@ -181,7 +182,7 @@ class FCPage extends basePage {
           <textarea readOnly rows="15" cols="50" value={this.state.FCStatus.statusText}></textarea>
         </label>
         <br />
-        <Button size="sm" disabled={!this.state.telemetryStatus} onClick={this.handleFCReboot}>Reboot Flight Controller</Button>
+        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>
       </div>
     );
   }

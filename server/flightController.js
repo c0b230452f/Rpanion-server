@@ -1,4 +1,5 @@
 const SerialPort = require('serialport')
+const dgram = require('dgram');
 const { autoDetect } = require('@serialport/bindings-cpp')
 const fs = require('fs')
 const events = require('events')
@@ -79,11 +80,11 @@ class FCDetails {
     this.enableTCP = false
 
     // Use UDP Broadcast?
-    this.enableUDPB = true
+    this.enableUDPB = false
     this.UDPBPort = 14550
 
     // Send datastream requests to flight controller?
-    this.enableDSRequest = false
+    this.enableDSRequest = true
 
     // Current binlog via mavlink-router
     this.binlog = null
@@ -98,34 +99,43 @@ class FCDetails {
     this.enableTCP = this.settings.value('flightcontroller.enableTCP', false)
     this.enableUDPB = this.settings.value('flightcontroller.enableUDPB', true)
     this.UDPBPort = this.settings.value('flightcontroller.UDPBPort', 14550)
-    this.enableDSRequest = this.settings.value('flightcontroller.enableDSRequest', false)
+    this.enableDSRequest = this.settings.value('flightcontroller.enableDSRequest', true)
     this.tlogging = this.settings.value('flightcontroller.tlogging', false)
 
-    if (this.activeDevice !== null) {
-      // restart link if saved serial device is found
-      let found = false
-      this.getSerialDevices((err, devices, bauds, seldevice, selbaud, mavers, selmav, active, enableHeartbeat, enableTCP) => {
-        for (let i = 0, len = devices.length; i < len; i++) {
-          if (this.activeDevice.serial.value === devices[i].value) {
-            found = true
-            this.startLink((err, active) => {
-              if (err) {
-                console.log("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
-                this.winston.info("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
-                this.activeDevice = null
-              }
-              this.startInterval()
-            })
-            break
-          }
-        }
-        if (!found) {
-          console.log("Can't find saved FC, resetting")
-          this.winston.info("Can't find saved FC, resetting")
-          this.activeDevice = null
-        }
-      })
-    }
+    // if (this.activeDevice !== null) {
+    //   // restart link if saved serial device is found
+    //   let found = false
+    //   this.getSerialDevices((err, devices, bauds, seldevice, selbaud, mavers, selmav, active, enableHeartbeat, enableTCP) => {
+    //     for (let i = 0, len = devices.length; i < len; i++) {
+    //       if (this.activeDevice.serial.value === devices[i].value) {
+    //         found = true
+    //         this.startLink((err, active) => {
+    //           if (err) {
+    //             console.log("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
+    //             this.winston.info("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
+    //             this.activeDevice = null
+    //           }
+    //           this.startInterval()
+    //         })
+    //         break
+    //       }
+    //     }
+    //     if (!found) {
+    //       console.log("Can't find saved FC, resetting")
+    //       this.winston.info("Can't find saved FC, resetting")
+    //       this.activeDevice = null
+    //     }
+    //   })
+    // }
+    this.startLink((err, active) => {
+      if (err) {
+        this.winston.info(err)
+        // console.log("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
+        // this.winston.info("Can't open found FC " + this.activeDevice.serial.value + ', resetting link')
+        // this.activeDevice = null
+      }
+      this.startInterval()
+    })
   }
 
   validMavlinkRouter () {
@@ -290,40 +300,42 @@ class FCDetails {
 
   startLink (callback) {
     // start the serial link
-    console.log('Opening Link ' + this.activeDevice.serial.value + ' @ ' + this.activeDevice.baud.value + ', MAV v' + this.activeDevice.mavversion.value)
-    this.winston.info('Opening Link ' + this.activeDevice.serial.value + ' @ ' + this.activeDevice.baud.value + ', MAV v' + this.activeDevice.mavversion.value)
+    // console.log('Opening Link ' + this.activeDevice.serial.value + ' @ ' + this.activeDevice.baud.value + ', MAV v' + this.activeDevice.mavversion.value)
+    // this.winston.info('Opening Link ' + this.activeDevice.serial.value + ' @ ' + this.activeDevice.baud.value + ', MAV v' + this.activeDevice.mavversion.value)
+    this.winston.info("startLink")
     // this.outputs.push({ IP: newIP, port: newPort })
 
     // build up the commandline for mavlink-router
-    const cmd = ['-e', '127.0.0.1:14540', '--tcp-port']
-    if (this.enableTCP === true) {
-      cmd.push('5760')
-    } else {
-      cmd.push('0')
-    }
-    for (let i = 0, len = this.UDPoutputs.length; i < len; i++) {
-      cmd.push('-e')
-      cmd.push(this.UDPoutputs[i].IP + ':' + this.UDPoutputs[i].port)
-    }
-    cmd.push('--log')
-    cmd.push('./flightlogs')
-    if (this.tlogging === true) {
-      cmd.push('--telemetry-log')
-    }
-    if (this.enableUDPB === true) {
-      cmd.push('0.0.0.0:' + this.UDPBPort)
-    }
-    cmd.push(this.activeDevice.serial.value + ':' + this.activeDevice.baud.value)
-    console.log(cmd)
+    // const cmd = ['-e', '127.0.0.1:14540', '--tcp-port']
+    // if (this.enableTCP === true) {
+    //   cmd.push('5760')
+    // } else {
+    //   cmd.push('0')
+    // }
+    // for (let i = 0, len = this.UDPoutputs.length; i < len; i++) {
+    //   cmd.push('-e')
+    //   cmd.push(this.UDPoutputs[i].IP + ':' + this.UDPoutputs[i].port)
+    // }
+    // cmd.push('--log')
+    // cmd.push('./flightlogs')
+    // if (this.tlogging === true) {
+    //   cmd.push('--telemetry-log')
+    // }
+    // if (this.enableUDPB === true) {
+    //   cmd.push('0.0.0.0:' + this.UDPBPort)
+    // }
+    // cmd.push(this.activeDevice.serial.value + ':' + this.activeDevice.baud.value)
+    // console.log(cmd)
 
     // check mavlink-router exists
-    if (!this.validMavlinkRouter()) {
-      console.log('Could not find mavlink-routerd')
-      this.winston.info('Could not find mavlink-routerd')
-      return callback('Could not find mavlink-routerd', false)
-    }
+    // if (!this.validMavlinkRouter()) {
+    //   console.log('Could not find mavlink-routerd')
+    //   this.winston.info('Could not find mavlink-routerd')
+    //   return callback('Could not find mavlink-routerd', false)
+    // }
 
     // start mavlink-router
+    /*
     this.router = spawn('mavlink-routerd', cmd)
     this.router.stdout.on('data', (data) => {
       console.log(`stdout: ${data}`)
@@ -354,6 +366,7 @@ class FCDetails {
       this.winston.info('Closed Router')
       this.eventEmitter.emit('stopLink')
     })
+    */
 
     console.log('Opened Router')
     this.winston.info('Opened Router')
@@ -361,7 +374,7 @@ class FCDetails {
     // only restart the mavlink processor if it's a new link,
     // not a reconnect attempt
     if (this.m === null) {
-      this.m = new mavManager(2, '127.0.0.1', 14540, this.enableDSRequest)
+      this.m = new mavManager(2, '127.0.0.1', 14550, this.enableDSRequest)
       this.m.eventEmitter.on('gotMessage', (packet, data) => {
         // got valid message - send on to attached classes
         this.previousConnection = true
@@ -490,7 +503,7 @@ class FCDetails {
       this.m.sendHeartbeat()
     }
       // check for timeouts in serial link (ie disconnected cable or reboot)
-      if (this.m && this.m.conStatusInt() === -1) {
+    if (this.m && this.m.conStatusInt() === -1) {
         console.log('Trying to reconnect FC...')
         this.winston.info('Trying to reconnect FC...')
         this.closeLink((err) => {

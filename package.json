@@ -10,7 +10,7 @@
     "express-rate-limit": "^6.9.0",
     "express-validator": "^7.0.1",
     "moment": "^2.29.4",
-    "node-mavlink": "^2.0.5",
+    "node-mavlink": "^2.0.7",
     "npm": "^9.8.1",
     "ntrip-client": "^1.1.1",
     "nyc": "^15.1.0",
@@ -52,7 +52,7 @@
     "service": "DEBUG=express:* node ./server/index.js",
     "dev": "run-p server start"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://172.20.10.4:3001",
   "browserslist": [
     ">0.2%",
     "not dead",
