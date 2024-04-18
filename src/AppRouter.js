@@ -26,7 +26,6 @@ function AppRouter () {
         </div>
         <div id="sidebar-items" className="list-group list-group-flush">
           <Link className='list-group-item list-group-item-action bg-light' to="/"><FaHome className='menu-icon' /><span class="text">ホーム</span></Link>
-          <Link className='list-group-item list-group-item-action bg-light' to="/flightlogs"><AiFillDatabase className='menu-icon' /><span class="text">フライトログ</span></Link>
           <Link className='list-group-item list-group-item-action bg-light' to="/controller"><GiCube className='menu-icon' /><span class="text">フライトコントローラー</span></Link>
           <Link className='list-group-item list-group-item-action bg-light' to="/ntrip"><RiGpsFill className='menu-icon' /><span class="text">NTRIP接続</span></Link>
           <Link className='list-group-item list-group-item-action bg-light' to="/vpn"><MdOutlineVpnLock className='menu-icon' /><span class="text">VPN設定</span></Link>
@@ -38,7 +37,6 @@ function AppRouter () {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/controller" element={<FCConfig />} />
-            <Route exact path="/flightlogs" element={<LogBrowser />} />
             <Route exact path="/apclients" element={<NetworkClients />} />
             <Route exact path="/ntrip" element={<NTRIPPage />} />
             <Route exact path="/vpn" element={<VPN/>} />
