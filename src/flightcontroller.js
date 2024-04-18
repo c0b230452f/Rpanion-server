@@ -119,6 +119,17 @@ class FCPage extends basePage {
     });
   }
 
+  handleShutdown = (event) => {
+    //user clicked to reboot flight controller
+    fetch('/api/shutdowncc', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    });
+  }
+
   addUdpOutput = (event) => {
     //add a new udp output
     fetch('/api/addudpoutput', {
@@ -182,7 +193,8 @@ class FCPage extends basePage {
           <textarea readOnly rows="15" cols="50" value={this.state.FCStatus.statusText}></textarea>
         </label>
         <br />
-        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>
+        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button><br /><br />
+        <Button size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>シャットダウン</Button>
       </div>
     );
   }
