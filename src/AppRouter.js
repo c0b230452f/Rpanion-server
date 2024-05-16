@@ -3,14 +3,12 @@ import { Route, Routes, Link } from 'react-router-dom'
 
 import Home from './home.js'
 import FCConfig from './flightcontroller.js'
-import LogBrowser from './logBrowser.js'
 import NetworkClients from './networkClients.js'
 import NTRIPPage from './ntripcontroller.js'
 import VPN from './vpnconfig'
 
 import Logo from './images/logo.webp'
 import { FaHome } from 'react-icons/fa'
-import { AiFillDatabase } from "react-icons/ai"
 import { GiCube } from "react-icons/gi"
 import { RiGpsFill } from "react-icons/ri"
 import { MdOutlineVpnLock } from "react-icons/md"

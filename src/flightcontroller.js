@@ -45,9 +45,7 @@ class FCPage extends basePage {
   }
 
   componentDidMount() {
-    // fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state) });
-    // fetch(`/api/FCOutputs`).then(response => response.json()).then(state => { this.setState(state); this.loadDone() });
-    this.loadDone();
+    fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state);  this.loadDone() });
   }
 
   handleSerialPortChange = (value, action) => {
@@ -182,18 +180,57 @@ class FCPage extends basePage {
   }
 
   renderContent() {
+    let gps = ''
+    if (this.state.FCStatus.gps !== undefined) {
+      let lat = parseInt(this.state.FCStatus.gps.lat) / 10000000.0
+      let lon = parseInt(this.state.FCStatus.gps.lon) / 10000000.0
+      let alt = parseInt(this.state.FCStatus.gps.alt) / 1000.0
+      var fixState = 'NoGPS'
+      switch(this.state.FCStatus.gps.status) {
+        case 1:
+          fixState = 'NoFix'
+          break;
+        case 2:
+          fixState = '2DFix'
+          break;
+        case 3:
+          fixState = '3DFix'
+          break;
+        case 4:
+          fixState = 'DGPS'
+          break;
+        case 5:
+          fixState = 'RTKFloat'
+          break;
+        case 6:
+          fixState = 'RTKFixed'
+          break;
+        case 7:
+          fixState = 'STATIC'
+          break;
+        case 8:
+          fixState = 'PPP'
+          break;
+      }
+      gps = <p>
+        GPS fixStatus: {fixState}<br />
+        Lat: {lat.toFixed(7)} Lon: {lon.toFixed(7)} Alt: {alt.toFixed(2)}m
+      </p>
+    }
+
     return (
       <div style={{ width: 600 }}>
         <h2>Status</h2>
-        <p>Packets Received: {this.state.FCStatus.numpackets} ({this.state.FCStatus.byteRate} bytes/sec)</p>
         <p>Connection Status: {this.state.FCStatus.conStatus}</p>
+        <p>Packets Received: {this.state.FCStatus.numpackets} ({this.state.FCStatus.byteRate} bytes/sec)</p>
         <p>Vehicle Type: {this.state.FCStatus.vehType}</p>
         <p>Vehicle Firmware: {this.state.FCStatus.FW}{this.state.FCStatus.fcVersion === '' ? '' : (', Version: ' + this.state.FCStatus.fcVersion)}</p>
+        {gps}
         <label>Console Output:<br />
-          <textarea readOnly rows="15" cols="50" value={this.state.FCStatus.statusText}></textarea>
+          <textarea readOnly rows="10" cols="50" value={this.state.FCStatus.statusText}></textarea>
         </label>
         <br />
-        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button><br /><br />
+        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>&nbsp;&nbsp;&nbsp;
         <Button size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>シャットダウン</Button>
       </div>
     );
