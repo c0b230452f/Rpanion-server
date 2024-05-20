@@ -27,7 +27,7 @@ const app = express()
 const http = require('http').Server(app)
 const path = require('path')
 const softetherRoutes = require("./softether/routes.js");
-console.log('11')
+const scheduleRoutes = require("./schedule/routes.js");
 
 // set up rate limiter: maximum of fifty requests per minute
 const RateLimit = require('express-rate-limit')
@@ -40,7 +40,7 @@ const limiter = RateLimit({
 app.use(limiter)
 
 // use file uploader for Wireguard profiles
-app.use(fileUpload({ limits: { fileSize: 500 }, abortOnLimit: true, useTempFiles: true, tempFileDir: '/tmp/', safeFileNames: true, preserveExtension: 4 }))
+app.use(fileUpload({ limits: { fileSize: 5 * 1024 * 1024 }, abortOnLimit: true, useTempFiles: true, tempFileDir: '/tmp/', safeFileNames: true, preserveExtension: 4 }))
 
 const io = require('socket.io')(http, { cookie: false })
 const { check, validationResult, oneOf } = require('express-validator')
@@ -134,6 +134,7 @@ app.use(express.static(path.join(__dirname, '..', '/build')))
 
 // Softether VPN routes
 app.use('/api/softether', softetherRoutes)
+app.use('/api/schedule', scheduleRoutes)
 
 console.log('hoge')
 

@@ -4,12 +4,16 @@
   "private": true,
   "secure": false,
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/x-data-grid": "^7.5.0",
     "app-root-path": "^3.1.0",
     "bootstrap": "^5.3.1",
     "express-fileupload": "^1.4.0",
     "express-rate-limit": "^6.9.0",
     "express-validator": "^7.0.1",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.45",
     "node-mavlink": "^2.0.7",
     "npm": "^9.8.1",
     "ntrip-client": "^1.1.1",
@@ -52,7 +56,7 @@
     "service": "DEBUG=express:* node ./server/index.js",
     "dev": "run-p server start"
   },
-  "proxy": "http://192.168.30.10:3001",
+  "proxy": "http://10.0.2.100:3001",
   "browserslist": [
     ">0.2%",
     "not dead",

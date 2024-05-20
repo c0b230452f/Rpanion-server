@@ -6,12 +6,13 @@ import FCConfig from './flightcontroller.js'
 import NetworkClients from './networkClients.js'
 import NTRIPPage from './ntripcontroller.js'
 import VPN from './vpnconfig'
+import Schedule from './schedulecontroller.js'
 
 import Logo from './images/logo.webp'
 import { FaHome } from 'react-icons/fa'
 import { GiCube } from "react-icons/gi"
 import { RiGpsFill } from "react-icons/ri"
-import { MdOutlineVpnLock } from "react-icons/md"
+import { MdOutlineVpnLock, MdSchedule } from "react-icons/md"
 
 function AppRouter () {
   return (
@@ -27,6 +28,7 @@ function AppRouter () {
           <Link className='list-group-item list-group-item-action bg-light' to="/controller"><GiCube className='menu-icon' /><span class="text">フライトコントローラー</span></Link>
           <Link className='list-group-item list-group-item-action bg-light' to="/ntrip"><RiGpsFill className='menu-icon' /><span class="text">NTRIP接続</span></Link>
           <Link className='list-group-item list-group-item-action bg-light' to="/vpn"><MdOutlineVpnLock className='menu-icon' /><span class="text">VPN設定</span></Link>
+          <Link className='list-group-item list-group-item-action bg-light' to="/schedule"><MdSchedule className='menu-icon' /><span class="text">スケジュール</span></Link>
         </div>
       </div>
 
@@ -38,6 +40,7 @@ function AppRouter () {
             <Route exact path="/apclients" element={<NetworkClients />} />
             <Route exact path="/ntrip" element={<NTRIPPage />} />
             <Route exact path="/vpn" element={<VPN/>} />
+            <Route exact path="/schedule" element={<Schedule/>} />
             <Route element={NoMatch} />
           </Routes>
         </div>
