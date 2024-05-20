@@ -32,3 +32,6 @@ settingsTest.json
 
 # AP log things
 mav.*
+
+server/schedule/missions
+server/schedule/tasks.json
