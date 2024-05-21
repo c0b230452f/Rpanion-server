@@ -14,6 +14,7 @@
     "express-validator": "^7.0.1",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.45",
+    "node-cron": "^3.0.3",
     "node-mavlink": "^2.0.7",
     "npm": "^9.8.1",
     "ntrip-client": "^1.1.1",
@@ -56,7 +57,7 @@
     "service": "DEBUG=express:* node ./server/index.js",
     "dev": "run-p server start"
   },
-  "proxy": "http://10.0.2.100:3001",
+  "proxy": "http://localhost:3001",
   "browserslist": [
     ">0.2%",
     "not dead",
