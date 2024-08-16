@@ -2,10 +2,10 @@ import React from 'react'
 
 import basePage from './basePage.js'
 
-import roverImage from './images/spark-kit-rover.webp'
+import Img from './images/homeImg.webp'
 
 class Home extends basePage {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       loading: true,
@@ -14,23 +14,20 @@ class Home extends basePage {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.loadDone()
   }
 
-  renderTitle () {
-    return 'Spark Kit'
+  renderTitle() {
+    return 'QAI Web'
   }
 
-  renderContent () {
+  renderContent() {
     return (
       <div>
-        <p>
-        <img src={roverImage} width="50%" height="50%" /><br/>
-          ArduPilot標準なローバー。</p>
-        <p><a href='https://www.robot-to-society.com/lp/sparkkit'>Spark Kitについて</a></p>
-        <p><a href='https://github.com/rtos-org/spark-kit.git'>ドキュメント</a></p>
-        <p><a href='https://github.com/rtos-org/spark-kit.git'>コミュニティ</a></p>
+        <img src={Img} width={"70%"} margin={"0 15%"}/>
+        <p>HIGH PERFORMANCE VTOL DRONE</p>
+        <p>MADE IN JAPAN</p>
       </div>
     )
   }
