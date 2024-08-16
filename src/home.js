@@ -24,7 +24,7 @@ class Home extends basePage {
 
   renderContent() {
     return (
-      <div>
+      <div class="homepe">
         <img src={Img} width={"70%"} margin={"0 15%"}/>
         <p>HIGH PERFORMANCE VTOL DRONE</p>
         <p>MADE IN JAPAN</p>

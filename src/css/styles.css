@@ -46,6 +46,13 @@
     color: #D9E01E;
 }
 
+.homepe{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
 #sidebar-wrapper {
     margin-left: 0 !important;
     border-right: 1px #fff solid;
