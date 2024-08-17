@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/Table';
 import basePage from './basePage.js';
 
 import './css/styles.css';
+import './css/flightcontroller.css';
 
 class FCPage extends basePage {
   constructor(props, useSocketIO = true) {
@@ -45,7 +46,7 @@ class FCPage extends basePage {
   }
 
   componentDidMount() {
-    fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state);  this.loadDone() });
+    fetch(`/api/FCDetails`).then(response => response.json()).then(state => { this.setState(state); this.loadDone() });
   }
 
   handleSerialPortChange = (value, action) => {
@@ -186,7 +187,7 @@ class FCPage extends basePage {
       let lon = parseInt(this.state.FCStatus.gps.lon) / 10000000.0
       let alt = parseInt(this.state.FCStatus.gps.alt) / 1000.0
       var fixState = 'NoGPS'
-      switch(this.state.FCStatus.gps.status) {
+      switch (this.state.FCStatus.gps.status) {
         case 1:
           fixState = 'NoFix'
           break;
@@ -219,23 +220,8 @@ class FCPage extends basePage {
     }
 
     return (
-      <div style={{ width: 600 }}>
-        <h2>Status</h2>
-        <p>Connection Status: {this.state.FCStatus.conStatus}</p>
-        <p>Packets Received: {this.state.FCStatus.numpackets} ({this.state.FCStatus.byteRate} bytes/sec)</p>
-        <p>Vehicle Type: {this.state.FCStatus.vehType}</p>
-        <p>Vehicle Firmware: {this.state.FCStatus.FW}{this.state.FCStatus.fcVersion === '' ? '' : (', Version: ' + this.state.FCStatus.fcVersion)}</p>
+      <div id='flightCon' className='statuses' style={{ width: '100%' }}>
         {gps}
-        
-          
-            <label>Console Output:<br />
-              <textarea readOnly rows="10" cols="50" value={this.state.FCStatus.statusText}></textarea>
-            </label>
-            <br />
-            <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>&nbsp;&nbsp;&nbsp;
-            <Button size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>シャットダウン</Button>
-          
-        
             <div class="container">
                 <div id="tachometer">
                               <div class="ii">
@@ -260,6 +246,29 @@ class FCPage extends basePage {
 
           </div>
         
+
+        <div className='status1'>
+          <label className='console'><span className='Label'>Console Output</span><br />
+            <textarea readOnly rows="10" cols="50" value={this.state.FCStatus.statusText}></textarea>
+          </label>
+          <br />
+
+          <div className='statusInfo'>
+            <p>Connection Status: {this.state.FCStatus.conStatus}</p>
+            <p>Packets Received: {this.state.FCStatus.numpackets} ({this.state.FCStatus.byteRate} bytes/sec)</p>
+            <p>Vehicle Type: {this.state.FCStatus.vehType}</p>
+            <p>Vehicle Firmware: {this.state.FCStatus.FW}{this.state.FCStatus.fcVersion === '' ? '' : (', Version: ' + this.state.FCStatus.fcVersion)}</p>
+          
+            <div id='flightButtons'>
+              <Button variant='outlined' size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>
+                FC再起動
+              </Button>&nbsp;&nbsp;&nbsp;
+              <Button variant='outlined' size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>
+                シャットダウン
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
