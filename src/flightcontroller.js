@@ -226,12 +226,40 @@ class FCPage extends basePage {
         <p>Vehicle Type: {this.state.FCStatus.vehType}</p>
         <p>Vehicle Firmware: {this.state.FCStatus.FW}{this.state.FCStatus.fcVersion === '' ? '' : (', Version: ' + this.state.FCStatus.fcVersion)}</p>
         {gps}
-        <label>Console Output:<br />
-          <textarea readOnly rows="10" cols="50" value={this.state.FCStatus.statusText}></textarea>
-        </label>
-        <br />
-        <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>&nbsp;&nbsp;&nbsp;
-        <Button size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>シャットダウン</Button>
+        
+          
+            <label>Console Output:<br />
+              <textarea readOnly rows="10" cols="50" value={this.state.FCStatus.statusText}></textarea>
+            </label>
+            <br />
+            <Button size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>FC再起動</Button>&nbsp;&nbsp;&nbsp;
+            <Button size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>シャットダウン</Button>
+          
+        
+            <div class="container">
+                <div id="tachometer">
+                              <div class="ii">
+                                  <div><b><span class="num_1">0</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_2">1</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_3">2</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_4">3</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_5">4</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_6">5</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_7">6</span></b></div>
+                              </div> 
+                            <div id="redline"></div>
+                      <div class="line"></div>
+                    <div class="pin"><div class="inner"></div></div> 
+                </div>
+
+          </div>
+        
       </div>
     );
   }
