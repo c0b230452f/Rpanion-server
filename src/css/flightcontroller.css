@@ -1,0 +1,62 @@
+#flightButtons Button {
+    color: #D9E01E !important;
+    border-color: #D9E01E !important;
+}
+
+.status1 {
+    display: flex;
+}
+
+.console {
+    border-top: 1px solid#9a9e18;
+    border-right: 1px solid#9a9e18;
+    text-align: right;
+    width: 60%;
+    height: 200px;
+}
+
+.console textarea {
+    background-color: #000;
+    border-color: #000;
+    width: 100%;
+    height: 80%;
+}
+
+.Label {
+    -webkit-text-stroke: 1px #000 !important;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #9a9e18;
+    background-color: #9a9e18;
+    padding: 2px 0.3em;
+}
+
+.statusInfo {
+    border-top: 1px solid#9a9e18;
+    box-sizing: border-box;
+    width: 38%;
+    height: 200px;
+    padding: 0.5em;
+}
+
+#flightButtons {
+    text-align: right;
+}
+
+.page-content-footer {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+    text-align: right !important;
+    padding-right: 5%;
+}
+
+@media (max-width: 950px) {
+    .console {
+        height: 300px;
+    }
+
+    .statusInfo {
+        height: 300px;
+    }
+}
