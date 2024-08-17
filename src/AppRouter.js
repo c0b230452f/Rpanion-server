@@ -8,7 +8,7 @@ import NTRIPPage from './ntripcontroller.js'
 import VPN from './vpnconfig'
 import Schedule from './schedulecontroller.js'
 
-import Logo from './images/logo.webp'
+import Logo from './images/qukai_logo_3.webp'
 import { FaHome } from 'react-icons/fa'
 import { GiCube } from "react-icons/gi"
 import { RiGpsFill } from "react-icons/ri"

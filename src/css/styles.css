@@ -1,6 +1,13 @@
 .d-flex {
     display: flex !important;
     flex: auto;
+    background-color: black !important;
+}
+
+.bg-light {
+    background-color: black !important;
+    color: #fff;
+    font-size: 1.2em;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -11,36 +18,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px auto;
+    margin: 10px auto;
     overflow: hidden;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    height: auto;
 }
 
 .logo {
-    width: 60%;
+    width: 100%;
     height: auto;
 }
 
 .menu-icon {
+    display: none;
     margin: 0 2px 3px 0;
 }
 
 .content-wrapper {
     width: 100%;
+    color: #fff;
 }
 
 .page-title {
-    padding: 20px 0 20px 10px;
-    border-bottom: 2px solid #eeeeee;
-    margin: 10px 0 40px 0;
+    padding: 20px 0 0 10px;
+    border-bottom: 2px solid #fff;
+    margin: 10px 0 25px 0;
+    width: 70%;
+    color: #D9E01E;
 }
 
 #sidebar-wrapper {
     margin-left: 0 !important;
+    border-right: 1px #fff solid;
 }
 
 @media (max-width: 786px) {
@@ -57,14 +66,16 @@
         overflow: hidden;
         width: 30px;
         height: 30px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     .logo {
         width: 60%;
         height: auto;
+    }
+
+    .menu-icon {
+        display: flex;
+        margin: 0 2px 3px 0;
     }
 
     #sidebar-wrapper .sidebar-heading {
@@ -74,6 +85,7 @@
 
     #sidebar-wrapper .list-group {
         width: 3rem;
+        border-right: 1px #fff solid;
     }
 
     #sidebar-items .text {
