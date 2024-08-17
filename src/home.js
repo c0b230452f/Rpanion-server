@@ -4,6 +4,8 @@ import basePage from './basePage.js'
 
 import Img from './images/homeImg.webp'
 
+import './css/home.css';
+
 class Home extends basePage {
   constructor(props) {
     super(props)
@@ -25,7 +27,7 @@ class Home extends basePage {
   renderContent() {
     return (
       <div class="homepe">
-        <img src={Img} width={"70%"} margin={"0 15%"}/>
+        <img src={Img} />
         <p>HIGH PERFORMANCE VTOL DRONE</p>
         <p>MADE IN JAPAN</p>
       </div>

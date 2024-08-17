@@ -7,6 +7,7 @@
 .bg-light {
     background-color: black !important;
     color: #fff;
+    font-size: 1.2em;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -44,13 +45,6 @@
     margin: 10px 0 25px 0;
     width: 70%;
     color: #D9E01E;
-}
-
-.homepe{
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
 }
 
 #sidebar-wrapper {

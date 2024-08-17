@@ -12,6 +12,7 @@ import { GrSchedulePlay } from "react-icons/gr";
 import basePage from './basePage.js';
 
 import './css/styles.css';
+import './css/schedulecontroller.css'
 
 class SchedulePage extends basePage {
   constructor(props, useSocketIO = true) {
@@ -34,7 +35,7 @@ class SchedulePage extends basePage {
           align: "center",
           flex: 1,
           type: 'actions',
-          getActions:  (params) => [
+          getActions: (params) => [
             <GridActionsCellItem
               key={params.id}
               icon={<MdClose />}
@@ -125,7 +126,7 @@ class SchedulePage extends basePage {
   handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.name.endsWith('.waypoints')) {
-      this.setState({file: selectedFile});
+      this.setState({ file: selectedFile });
     } else {
       alert('Only .waypoints files are allowed');
       e.target.value = null;
@@ -148,25 +149,25 @@ class SchedulePage extends basePage {
       method: 'POST',
       body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      this.setState(data)
-      this.setState({
-        name: '',
-        datetime: '',
-        file: null,
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState(data)
+        this.setState({
+          name: '',
+          datetime: '',
+          file: null,
+        })
+        this.handleClose();
       })
-      this.handleClose();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
   handleDateTimeChange = (e) => {
     const date = moment.tz(e.target.value, "Asia/Tokyo");
-    this.setState({datetime: date.format("YYYY-MM-DD HH:mm:ss")});
+    this.setState({ datetime: date.format("YYYY-MM-DD HH:mm:ss") });
   }
 
   changeaddrow = event => {
@@ -190,7 +191,7 @@ class SchedulePage extends basePage {
     return (
       <div style={{ width: '90%' }}>
         <h2>Task List</h2>
-        <DataGrid columns={this.state.taskHeaders} rows={this.state.taskLists} density='comfortable' components={ this.NoRowsOverlay } />
+        <DataGrid columns={this.state.taskHeaders} rows={this.state.taskLists} density='comfortable' components={this.NoRowsOverlay} />
         <Button size="sm" disabled={this.state.loading} onClick={this.handleShow}>追加</Button>
         <Modal show={this.state.show} onHide={this.handleClose} backdrop="static">
           <Modal.Header closeButton>
@@ -204,7 +205,7 @@ class SchedulePage extends basePage {
                   type="text"
                   placeholder="わかりやすい名称"
                   value={this.state.name}
-                  onChange={(e) => this.setState({name: e.target.value})}
+                  onChange={(e) => this.setState({ name: e.target.value })}
                 />
               </Form.Group>
               <Form.Group controlId="formDatetime">

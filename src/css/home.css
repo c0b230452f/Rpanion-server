@@ -1,0 +1,21 @@
+.homepe {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+}
+
+.homepe img {
+    width: 60%;
+    margin-bottom: 1.5em;
+}
+
+.homepe p {
+    line-height: 0.7em;
+}
+
+@media (max-width: 786px) {
+    .homepe p {
+        font-size: 0.8em;
+    }
+}

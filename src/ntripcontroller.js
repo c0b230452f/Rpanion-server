@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import basePage from './basePage.js';
 
 import './css/styles.css';
+import './css/ntripcontroller.css'
 
 class NTRIPPage extends basePage {
   constructor(props, useSocketIO = true) {
