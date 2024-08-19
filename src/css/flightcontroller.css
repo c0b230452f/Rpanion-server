@@ -59,7 +59,7 @@
 }
 
 #tachometer{
-    background:#17171700;
+    background:#17171700; /*背景に基準となる半円がいるけど透明にした*/
     margin:100px auto;
     width:300px;
     height:150px;
@@ -315,31 +315,6 @@
     background-image: linear-gradient(to bottom, #d9e01e, #343536);
     z-index: 4;
 }
-
-
-
-
-@keyframes pendulum {
-    10% {
-        transform:rotate(80deg);
-    }
-
-   
-    11% {
-        transform:rotate(78deg);
-    }
-    12% {
-        transform:rotate(76deg);
-    }
-
-    
- 
-   
-}
-
-
-
-
 
 @media (max-width: 950px) {
     .console {

@@ -247,7 +247,7 @@ class FCPage extends basePage {
                             <div id="redline"></div>
                       <div class="line">
 
-                      <div className={fixState === 'NoGPS' ? "NoGPS" : ""}></div>
+                      <div className={fixState === 'NoGPS' ? "NoGPS" : ""}></div>  /*ここいちいち針を描画してて本当はもっとうまいやり方があるのかもしれないけど一旦これで*/
                       <div className={fixState === 'NoFix' ? "NoFix" : ""}></div>
                       <div className={fixState === '2DFix' ? "secondDFix" : ""}></div>
                       <div className={fixState === '3DFix' ? "thirdDFix" : ""}></div>
