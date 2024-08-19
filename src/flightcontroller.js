@@ -225,22 +225,39 @@ class FCPage extends basePage {
             <div class="container">
                 <div id="tachometer">
                               <div class="ii">
-                                  <div><b><span class="num_1">0</span></b></div>
+                                  <div><b><span class="num_1">NoGPS</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_2">1</span></b></div>
+                                  <div><b><span class="num_2">Nofix</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_3">2</span></b></div>
+                                  <div><b><span class="num_3">2Dfix</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_4">3</span></b></div>
+                                  <div><b><span class="num_4">3Dfix</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_5">4</span></b></div>
+                                  <div><b><span class="num_5">DGPS</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_6">5</span></b></div>
+                                  <div><b><span class="num_6">RTKFloat</span></b></div>
                                   <div><b></b></div>
-                                  <div><b><span class="num_7">6</span></b></div>
+                                  <div><b><span class="num_7">RTKFixed</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_8">STATIC</span></b></div>
+                                  <div><b></b></div>
+                                  <div><b><span class="num_9">PPP</span></b></div>
+                                  
                               </div> 
                             <div id="redline"></div>
-                      <div class="line"></div>
+                      <div class="line">
+
+                      <div className={fixState === 'NoGPS' ? "NoGPS" : ""}></div>
+                      <div className={fixState === 'NoFix' ? "NoFix" : ""}></div>
+                      <div className={fixState === '2DFix' ? "secondDFix" : ""}></div>
+                      <div className={fixState === '3DFix' ? "thirdDFix" : ""}></div>
+                      <div className={fixState === 'DGPS' ? "DGPS" : ""}></div>
+                      <div className={fixState === 'RTKFloat' ? "RTKFloat" : ""}></div>
+                      <div className={fixState === 'RTKFixed' ? "RTKFixed" : ""}></div>
+                      <div className={fixState === 'STATIC' ? "STATIC" : ""}></div>
+                      <div className={fixState === 'PPP' ? "PPP" : ""}></div>
+                      
+                      </div>                  
                     <div class="pin"><div class="inner"></div></div> 
                 </div>
 
