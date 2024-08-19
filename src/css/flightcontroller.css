@@ -148,11 +148,11 @@
       
 }
 
-.num_1 {transform: rotate(80deg); top:-90px; left: -15px;} /*文字の位置　角度が扇状になってるので注意*/
-.num_2 {transform: rotate(60deg); top:-80px; left: -40px;}
-.num_3 {transform: rotate(40deg); top:-60px; left: -50px;}
-.num_4 {transform: rotate(20deg); top:-50px; left: -60px;}
-.num_5 {transform: rotate(0deg); top:-35px; left: -30px;}
+.num_1 {transform: rotate(80deg); top:-90px; left: -10px;} /*文字の位置　角度が扇状になってるので注意*/
+.num_2 {transform: rotate(60deg); top:-75px; left: -30px;}
+.num_3 {transform: rotate(40deg); top:-65px; left: -45px;}
+.num_4 {transform: rotate(20deg); top:-50px; left: -45px;}
+.num_5 {transform: rotate(0deg); top:-35px; left: -25px;}
 .num_6 {transform: rotate(-20deg); top: -30px; left: -10px;}
 .num_7 {transform: rotate(-40deg); top:-30px; left: 5px;}
 .num_8 {transform: rotate(-60deg); top: -30px; left: 5px;}
