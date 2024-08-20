@@ -238,10 +238,6 @@ class FCPage extends basePage {
                                   <div><b><span class="num_6">RTKFloat</span></b></div>
                                   <div><b></b></div>
                                   <div><b><span class="num_7">RTKFixed</span></b></div>
-                                  <div><b></b></div>
-                                  <div><b><span class="num_8">STATIC</span></b></div>
-                                  <div><b></b></div>
-                                  <div><b><span class="num_9">PPP</span></b></div>
                                   
                               </div> 
                             <div id="redline"></div>
@@ -254,8 +250,7 @@ class FCPage extends basePage {
                       <div className={fixState === 'DGPS' ? "DGPS" : ""}></div>
                       <div className={fixState === 'RTKFloat' ? "RTKFloat" : ""}></div>
                       <div className={fixState === 'RTKFixed' ? "RTKFixed" : ""}></div>
-                      <div className={fixState === 'STATIC' ? "STATIC" : ""}></div>
-                      <div className={fixState === 'PPP' ? "PPP" : ""}></div>
+                      
                       
                       </div>                  
                     <div class="pin"><div class="inner"></div></div> 
