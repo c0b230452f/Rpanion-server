@@ -1,0 +1,62 @@
+/* form行全体 */
+.form-group {
+    margin-left: 2em;
+    margin-bottom: 4px;
+}
+
+/* formラベル */
+.col-sm-2 {
+    /* display: flex; */
+    background-color: #D9E01E;
+    color: #000;
+}
+
+/* form入力全体 */
+.col-sm-10 {
+    display: flex;
+    height: 100%;
+    /* width: 40%; */
+    /* border-bottom: 2px #D9E01E solid; */
+}
+
+/* form入力欄 */
+.form-control {
+    /* display: flex; */
+    width: 40%;
+    border-radius: 0px !important;
+    background-color: #ffffffe0;
+    border: 0px;
+}
+
+/* パスワードの表示/非表示チェックボックス */
+.showpw {
+    margin-left: 3px;
+    padding-left: 2px;
+    line-height: 100%;
+    vertical-align: bottom;
+    text-align: right;
+}
+
+.showpw label {
+    vertical-align: bottom;
+}
+
+/* ボタンデザイン */
+.enableButton {
+    width: 65%;
+    text-align: right !important;
+}
+
+.col-sm-10 button {
+    background-color: #D9E01E;
+    border-color: #D9E01E;
+    color: #000;
+    margin: 10px 0 0 auto;
+}
+
+.col-sm-10 button:hover {
+    background-color: #787b11 !important;
+    border-color: #787b11;
+    color: #ffffff !important;
+    /* margin: 10px 0 0 auto; */
+}

@@ -3,6 +3,9 @@ import Select from 'react-select';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
+
 import basePage from './basePage.js';
 
 import './css/styles.css';
@@ -49,7 +52,7 @@ class NTRIPPage extends basePage {
     });
   }
 
-  togglePasswordVisible = event => {
+  togglePasswordVisible() {
     this.setState({ showPW: event.target.checked });
   }
 
@@ -76,45 +79,57 @@ class NTRIPPage extends basePage {
     return "NTRIP接続";
   }
 
+  // Password(){
+  //   const [password, setPassword] = useState("");
+  //   const [passwordType, setPasswordType] = useState("password");
+  // }
+
   renderContent() {
     return (
       <div>
-        <Form style={{ width: 500 }}>
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
+        <Form>
+          <div className="form-group row">
             <label className="col-sm-2 col-form-label">Host</label>
             <div className="col-sm-10">
               <input type="text" className="form-control" name="host" disabled={this.state.active === true} onChange={this.changeHandler} value={this.state.host} />
             </div>
           </div>
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
+          <div className="form-group row">
             <label className="col-sm-2 col-form-label">Port</label>
             <div className="col-sm-10">
               <input type="number" min="100" max="60000" step="1" className="form-control" name="port" disabled={this.state.active === true} onChange={this.changeHandler} value={this.state.port} />
             </div>
           </div>
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
+          <div className="form-group row">
             <label className="col-sm-2 col-form-label">Mountpoint</label>
             <div className="col-sm-10">
               <input type="text" className="form-control" name="mountpoint" disabled={this.state.active === true} onChange={this.changeHandler} value={this.state.mountpoint} />
             </div>
           </div>
 
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
+          <div className="form-group row">
             <label className="col-sm-2 col-form-label">Username</label>
             <div className="col-sm-10">
               <input type="text" className="form-control" name="username" disabled={this.state.active === true} onChange={this.changeHandler} value={this.state.username} />
             </div>
           </div>
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
+          <div className="form-group row">
             <label className="col-sm-2 col-form-label">Password</label>
             <div className="col-sm-10">
-              <input type={this.state.showPW === true ? "text" : "password"} className="form-control" name="password" disabled={this.state.active === true} onChange={this.changeHandler} value={this.state.password} />
-              <input name="showpassword" type="checkbox" checked={this.state.showPW} onChange={this.togglePasswordVisible} /><label>Show Password</label>
+              <input className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} type={this.state.showPW === true ? "text" : "password"} disabled={this.state.active === true} />
+              <span className='showpw'><input name="showpassword" type="checkbox" checked={this.state.showPW} onChange={this.togglePasswordVisible} /><label>show password</label></span>
+              {/* <input className="form-control" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} type={"passwordType"} required />
+              {/* パスワード表示 */}
+              {/* {passwordType === "password" && ( */}
+                {/* <FiEye onClick={() => setPasswordType("text")} className='showpw_visual' />)} */}
+              {/* パスワード非表示 */}
+              {/* {passwordType === "text" && ( */}
+                {/* <FiEyeOff onClick={() => setPasswordType("password")} className='showpw_visual' />)}  */}
             </div>
           </div>
 
-          <div className="form-group row" style={{ marginBottom: '5px' }}>
-            <div className="col-sm-10">
+          <div className="form-group row">
+            <div className="col-sm-10 enableButton">
               <Button onClick={this.handleNTRIPSubmit} className="btn btn-primary">{this.state.active === true ? "Disable" : "Enable"}</Button>
             </div>
           </div>
