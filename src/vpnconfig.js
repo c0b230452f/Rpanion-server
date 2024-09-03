@@ -230,19 +230,21 @@ class VPNPage extends basePage {
 
   renderContent() {
     return (
-      <div style={{ width: 800 }}>
+      <div>
         <h2>Services</h2>
         <div className="form-group row" style={{ marginBottom: '5px' }}>
           <label className="col-sm-4 col-form-label">VPN Service</label>
           <div className="col-sm-8">
-            <Select onChange={this.handleVPNChange} options={this.state.vpnOptions} value={this.state.selectedVPN} />
+            <Select className='select' onChange={this.handleVPNChange} options={this.state.vpnOptions} value={this.state.selectedVPN} />
           </div>
         </div>
         <h2>Config</h2>
-        <p>Installed: {this.state.selVPNInstalled == true ? 'Yes' : 'No'}</p>
-        <p>Active: {this.state.selVPNActive == true ? 'Yes' : 'No'}</p>
-        <p>Online: {this.state.statusSoftether.online == true ? 'Yes' : 'No'}</p>
-        {/* <p>{JSON.stringify(this.state.selectedVPN.value == 'wireguard' ? this.state.statusWireguard : this.state.statusZerotier, null, 2)}</p> */}
+        <div className='config'>
+          <p>Installed: {this.state.selVPNInstalled == true ? 'Yes' : 'No'}</p>
+          <p>Active: {this.state.selVPNActive == true ? 'Yes' : 'No'}</p>
+          <p>Online: {this.state.statusSoftether.online == true ? 'Yes' : 'No'}</p>
+          {/* <p>{JSON.stringify(this.state.selectedVPN.value == 'wireguard' ? this.state.statusWireguard : this.state.statusZerotier, null, 2)}</p> */}
+        </div>
         <div style={{ display: (this.state.selectedVPN.value == 'softether' && this.state.statusSoftether != {}) ? "block" : "none" }}>
           <Table striped bordered>
             <thead>
