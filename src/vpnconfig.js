@@ -8,6 +8,38 @@ import basePage from './basePage.js'
 
 import './css/vpnconfig.css'
 
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: '#000',
+    borderColor: '#D9E01E',
+    borderRadius: 'none',
+    color: '#fff',
+    '&:hover': {
+      borderColor: '#D9E01E',
+    },
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isSelected ? '#D9E01E' : "#fff",
+    color: '#000',
+    '&:active': {
+      backgroundColor: '#787b11',
+      color: '#fff',
+    },
+  }),
+  menu: (provided) => ({
+    ...provided,
+    background: '#000',
+    borderColor: '#D9E01E',
+    borderRadius: 'none',
+  }),
+  input: (provided) => ({
+    ...provided,
+    color: '#fff',
+  }),
+};
+
 class VPNPage extends basePage {
   constructor(props) {
     super(props)
@@ -232,17 +264,17 @@ class VPNPage extends basePage {
     return (
       <div>
         <h2>Services</h2>
-        <div className="form-group row" style={{ marginBottom: '5px' }}>
+        <div className="form-group row" style={{ marginBottom: '30px' }}>
           <label className="col-sm-4 col-form-label">VPN Service</label>
           <div className="col-sm-8">
-            <Select className='select' onChange={this.handleVPNChange} options={this.state.vpnOptions} value={this.state.selectedVPN} />
+            <Select id='select' onChange={this.handleVPNChange} options={this.state.vpnOptions} value={this.state.selectedVPN} styles={customStyles} />
           </div>
         </div>
         <h2>Config</h2>
         <div className='config'>
-          <p>Installed: {this.state.selVPNInstalled == true ? 'Yes' : 'No'}</p>
-          <p>Active: {this.state.selVPNActive == true ? 'Yes' : 'No'}</p>
-          <p>Online: {this.state.statusSoftether.online == true ? 'Yes' : 'No'}</p>
+          <p>Installed: <span>{this.state.selVPNInstalled == true ? 'Yes' : 'No'}</span></p>
+          <p>Active: <span>{this.state.selVPNActive == true ? 'Yes' : 'No'}</span></p>
+          <p>Online: <span>{this.state.statusSoftether.online == true ? 'Yes' : 'No'}</span></p>
           {/* <p>{JSON.stringify(this.state.selectedVPN.value == 'wireguard' ? this.state.statusWireguard : this.state.statusZerotier, null, 2)}</p> */}
         </div>
         <div style={{ display: (this.state.selectedVPN.value == 'softether' && this.state.statusSoftether != {}) ? "block" : "none" }}>
@@ -286,7 +318,7 @@ class VPNPage extends basePage {
               <Form.Control type="password" name="sepassword" disabled={!this.state.selVPNActive} onChange={(event) => this.setState({ softetherPassword: event.target.value })} />
             </div>
           </div>
-          <div className="form-group row" style={{ margin: '10px 100px 0px 100px' }}>
+          <div className="form-group row" >
             <Button id="addse" disabled={!this.state.selVPNActive || this.state.softetherServer === null || this.state.softetherHub === null || this.state.softetherUsername === null || this.state.softetherPassword === null} onClick={() => this.addSoftetherNetwork()}>Save</Button>
           </div>
         </div>
