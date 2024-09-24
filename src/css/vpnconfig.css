@@ -1,8 +1,12 @@
 /* form行全体 */
 .form-group {
+    /* margin-left: 2em;
+    width: 80%; */
+    display: flex;
+    justify-content: left;
     margin-left: 2em;
-    /* margin-bottom: 10px; */
-    width: 80%;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .col-form-label {
@@ -16,12 +20,12 @@
     display: flex;
 }
 
-.col-sm-8 #select {
+#select {
     width: 80%;
-    /* background: #000 !important;
+    background: #000 !important;
     border: #D9E01E 1px solid !important;
     border-radius: none !important;
-    color: #fff !important; */
+    color: #fff !important;
 }
 
 /* Config */

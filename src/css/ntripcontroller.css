@@ -1,45 +1,48 @@
 /* form行全体 */
 .form-group {
+    display: flex;
+    justify-content: left;
     margin-left: 2em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 /* formラベル */
 .col-sm-2 {
-    /* display: flex; */
+    display: flex;
     background-color: #D9E01E;
     color: #000;
+    width: 20%;
 }
 
 /* form入力全体 */
 .col-sm-10 {
     display: flex;
-    height: 100%;
-    /* width: 40%; */
+    width: 50%;
+    /* margin-left: -0.5em; */
     /* border-bottom: 2px #D9E01E solid; */
 }
 
 /* form入力欄 */
 .form-control {
-    /* display: flex; */
-    width: 40%;
+    width: 60%;
     border-radius: 0px !important;
-    background-color: #ffffffe0;
-    border: 0px;
+    border: solid 1px #D9E01E;
+    background-color: #000;
+    color: #fff;
 }
+
 
 /* パスワードの表示/非表示チェックボックス */
 .showpw {
-    margin-left: 3px;
-    padding-left: 2px;
-    line-height: 100%;
-    vertical-align: bottom;
-    text-align: right;
+    width: 38%;
+    margin: auto 0 0 0.5em;
 }
 
 .showpw label {
-    vertical-align: bottom;
+    padding-left: 0.2em;
 }
+
 
 /* ボタンデザイン */
 .enableButton {
@@ -61,3 +64,14 @@
     /* margin: 10px 0 0 auto; */
 }
 
+
+@media (max-width: 1300px) {
+
+    .col-sm-10 {
+        display: inline-block;
+    }
+
+    .form-control, .showpw {
+        width: 100%;
+    }
+}

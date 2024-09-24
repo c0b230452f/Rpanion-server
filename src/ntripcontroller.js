@@ -121,10 +121,10 @@ class NTRIPPage extends basePage {
               {/* <input className="form-control" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} type={"passwordType"} required />
               {/* パスワード表示 */}
               {/* {passwordType === "password" && ( */}
-                {/* <FiEye onClick={() => setPasswordType("text")} className='showpw_visual' />)} */}
+              {/* <FiEye onClick={() => setPasswordType("text")} className='showpw_visual' />)} */}
               {/* パスワード非表示 */}
               {/* {passwordType === "text" && ( */}
-                {/* <FiEyeOff onClick={() => setPasswordType("password")} className='showpw_visual' />)}  */}
+              {/* <FiEyeOff onClick={() => setPasswordType("password")} className='showpw_visual' />)}  */}
             </div>
           </div>
 
