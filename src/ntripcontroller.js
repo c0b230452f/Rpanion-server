@@ -52,8 +52,9 @@ class NTRIPPage extends basePage {
     });
   }
 
-  togglePasswordVisible() {
+  togglePasswordVisible = event => {
     this.setState({ showPW: event.target.checked });
+    console.log(event.target.checked);
   }
 
   handleNTRIPSubmit = event => {
