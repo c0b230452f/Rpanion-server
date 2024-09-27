@@ -61,7 +61,7 @@
 
 .container {
     margin: 40px auto;
-    width: 200px;
+    width: 0px;
 }
 
 #tachometer {
@@ -331,7 +331,7 @@
     height: 45px;
     left: 50%;
     top: 100%;
-    margin: -40px 0 0 -45px;
+    margin: -40px 0 0 -48px;
     /*中心の半円の位置調整*/
     background-color: #343536;
     border-radius: 50% / 100% 100% 0 0;
