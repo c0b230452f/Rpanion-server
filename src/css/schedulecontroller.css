@@ -9,3 +9,6 @@
 .btn-primary:hover{
     background-color: #b7bc1af2;
 }
+.btn-primary:active{
+    background: #b7bc1af2 !important;
+}
