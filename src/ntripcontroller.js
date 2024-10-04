@@ -53,8 +53,9 @@ class NTRIPPage extends basePage {
   }
 
   togglePasswordVisible = event => {
-    this.setState({ showPW: event.target.checked });
-    console.log(event.target.checked);
+    this.setState({ showPW: !this.state.showPW });
+    // this.setState({ showPW: event.target });
+    // console.log(event.target);
   }
 
   handleNTRIPSubmit = event => {
@@ -79,11 +80,6 @@ class NTRIPPage extends basePage {
   renderTitle() {
     return "NTRIP接続";
   }
-
-  // Password(){
-  //   const [password, setPassword] = useState("");
-  //   const [passwordType, setPasswordType] = useState("password");
-  // }
 
   renderContent() {
     return (
@@ -117,15 +113,14 @@ class NTRIPPage extends basePage {
           <div className="form-group row">
             <label className="col-sm-2 col-form-label">Password</label>
             <div className="col-sm-10">
-              <input className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} type={this.state.showPW === true ? "text" : "password"} disabled={this.state.active === true} />
-              <span className='showpw'><input name="showpassword" type="checkbox" checked={this.state.showPW} onChange={this.togglePasswordVisible} /><label>show password</label></span>
-              {/* <input className="form-control" name="password" value={password} onChange={(e) => { setPassword(e.target.value) }} type={"passwordType"} required />
-              {/* パスワード表示 */}
-              {/* {passwordType === "password" && ( */}
-              {/* <FiEye onClick={() => setPasswordType("text")} className='showpw_visual' />)} */}
-              {/* パスワード非表示 */}
-              {/* {passwordType === "text" && ( */}
-              {/* <FiEyeOff onClick={() => setPasswordType("password")} className='showpw_visual' />)}  */}
+              <div id='ps-form'>
+                <input className="form-control" name="password" value={this.state.password} onChange={this.changeHandler} type={this.state.showPW === true ? "text" : "password"} disabled={this.state.active === true} />
+                <span role="button" className='eye' onClick={this.togglePasswordVisible}>
+                  {this.state.showPW === true && (<FiEye />)}
+                  {this.state.showPW === false && (<FiEyeOff />)}
+                </span>
+              </div>
+              {/* <span className='showpw'><input name="showpassword" type="checkbox" checked={this.state.showPW} onChange={this.togglePasswordVisible} /><label>show password</label></span> */}
             </div>
           </div>
 
