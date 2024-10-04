@@ -4,6 +4,7 @@ body {
     font-family: "M PLUS 1P", sans-serif;
 }
 
+
 .d-flex {
     display: flex !important;
     flex: auto;
@@ -98,3 +99,4 @@ body {
         display: none;
     }
 }
+
