@@ -79,19 +79,22 @@
 }
 
 .col-sm-10 button {
-    background-color: #D9E01E;
+    background-color: #000;
     border-color: #D9E01E;
-    color: #000;
+    color: #D9E01E;
     /* margin: 10px 0 0 auto; */
 }
 
 .col-sm-10 button:hover {
-    background-color: #787b11 !important;
-    border-color: #787b11;
-    color: #ffffff !important;
+    background-color: #000 !important;
+    border-color: #9a9e18;
+    color: #9a9e18 !important;
     /* margin: 10px 0 0 auto; */
 }
 
+.col-sm-10 button:active{
+    background: #787b11 !important;
+}
 
 @media (max-width: 1300px) {
 
