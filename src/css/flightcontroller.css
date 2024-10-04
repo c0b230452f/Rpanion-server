@@ -1,13 +1,21 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 #flightButtons Button {
+    margin-right: 10px;
     color: #D9E01E !important;
     border-color: #D9E01E !important;
+    background-color: #000 !important;
 }
 
 #flightButtons Button:hover {
     color: #9a9e18 !important;
     border-color: #9a9e18 !important;
+    background-color: #000 !important;
+}
+
+#flightButtons {
+    text-align: right;
+    width: 80%;
 }
 
 .status1 {
@@ -47,10 +55,6 @@
     padding: 0.5em;
 }
 
-#flightButtons {
-    text-align: right;
-}
-
 .page-content-footer {
     display: flex;
     flex-direction: row;
@@ -60,14 +64,14 @@
 }
 
 .container {
-    margin: 40px 700px;
-    width: 0px;
-    height:80px
+    margin: 40px 100px 20px 100px;
+    width: 0;
+    /* height:80px */
 }
 
 #tachometer {
     background: #b3141400;
-    margin: 50px auto;
+    margin: 50px auto 50px 0px;
     width: 200px;
     height: 100px;
     box-shadow: inset 0px 0px 9px 3px rgba(0, 0, 0, 1);
@@ -349,5 +353,9 @@
 
     .statusInfo {
         height: 300px;
+    }
+
+    #flightButtons button {
+        width: 80%;
     }
 }

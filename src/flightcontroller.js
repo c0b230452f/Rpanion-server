@@ -221,7 +221,6 @@ class FCPage extends basePage {
 
     return (
       <div id='flightCon' className='statuses' style={{ width: '100%' }}>
-        {gps}
             <div class="container">
                 <div id="tachometer">
                               <div class="ii">
@@ -255,8 +254,8 @@ class FCPage extends basePage {
                       </div>                  
                     <div class="pin"><div class="inner"></div></div> 
                 </div>
-
           </div>
+        {gps}
         
 
         <div className='status1'>
@@ -272,10 +271,10 @@ class FCPage extends basePage {
             <p>Vehicle Firmware: {this.state.FCStatus.FW}{this.state.FCStatus.fcVersion === '' ? '' : (', Version: ' + this.state.FCStatus.fcVersion)}</p>
           
             <div id='flightButtons'>
-              <Button variant='outlined' size="sm" disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>
+              <Button variant='outlined' size="sm" style={{color:'#D9E01E', borderColor:'#D9E01E'}} disabled={!(this.state.FCStatus.conStatus === 'Connected')} onClick={this.handleFCReboot}>
                 FC再起動
-              </Button>&nbsp;&nbsp;&nbsp;
-              <Button variant='outlined' size="sm" disabled={this.state.loading} onClick={this.handleShutdown}>
+              </Button>
+              <Button variant='outlined' size="sm" style={{color:'#D9E01E', borderColor:'#D9E01E'}} disabled={this.state.loading} onClick={this.handleShutdown}>
                 シャットダウン
               </Button>
             </div>
