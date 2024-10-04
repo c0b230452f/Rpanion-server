@@ -1,0 +1,16 @@
+.css-n3fyjk-MuiDataGrid-root{
+    background-color: white;
+}
+.btn-primary{
+    background-color: #D9E01E;
+    border: #D9E01E;
+    color: black;
+}
+/*ボタンにカーソルをかざしたときの色*/
+.btn-primary:hover{
+    background-color: #787b11;
+}
+/*ボタン押したときの色変化*/
+.btn-primary:active{
+    background: #787b11 !important;
+}

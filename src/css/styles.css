@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap');
+
+body {
+    font-family: "M PLUS 1P", sans-serif;
+}
+
 .d-flex {
     display: flex !important;
     flex: auto;
@@ -7,7 +13,7 @@
 .bg-light {
     background-color: black !important;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -20,7 +26,7 @@
     justify-content: center;
     margin: 10px auto;
     overflow: hidden;
-    width: 150px;
+    width: 170px;
     height: auto;
 }
 
@@ -30,7 +36,7 @@
 }
 
 .menu-icon {
-    display: none;
+    /* display: none; */
     margin: 0 2px 3px 0;
 }
 
