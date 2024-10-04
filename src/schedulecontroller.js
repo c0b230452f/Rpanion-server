@@ -191,8 +191,8 @@ class SchedulePage extends basePage {
     return (
       <div style={{ width: '90%' }}>
         <h2>Task List</h2>
-        <DataGrid columns={this.state.taskHeaders} rows={this.state.taskLists} density='comfortable' components={this.NoRowsOverlay} />
-        <Button size="sm" disabled={this.state.loading} onClick={this.handleShow}>追加</Button>
+        <DataGrid className='scheduleTable' columns={this.state.taskHeaders} rows={this.state.taskLists} density='comfortable' components={this.NoRowsOverlay} />
+        <Button className='addButton' variant='outlined' size="sm" disabled={this.state.loading} onClick={this.handleShow}>追加</Button>
         <Modal show={this.state.show} onHide={this.handleClose} backdrop="static">
           <Modal.Header closeButton>
             <Modal.Title>スケジュール追加</Modal.Title>
@@ -226,10 +226,10 @@ class SchedulePage extends basePage {
               </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="primary" onClick={this.handleClose}>
+              <Button className='footerButton' variant="primary" onClick={this.handleClose}>
                 閉じる
               </Button>
-              <Button variant="primary" type="submit">
+              <Button className='footerButton' variant="primary" type="submit">
                 追加
               </Button>
             </Modal.Footer>

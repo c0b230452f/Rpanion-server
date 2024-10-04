@@ -319,7 +319,7 @@ class VPNPage extends basePage {
             </div>
           </div>
           <div className="form-group row" >
-            <Button id="addse" disabled={!this.state.selVPNActive || this.state.softetherServer === null || this.state.softetherHub === null || this.state.softetherUsername === null || this.state.softetherPassword === null} onClick={() => this.addSoftetherNetwork()}>Save</Button>
+            <Button variant='outlined' id="addse" disabled={!this.state.selVPNActive || this.state.softetherServer === null || this.state.softetherHub === null || this.state.softetherUsername === null || this.state.softetherPassword === null} onClick={() => this.addSoftetherNetwork()}>Save</Button>
           </div>
         </div>
         <div style={{ display: (this.state.selectedVPN.value == 'zerotier' && this.state.statusZerotier != {}) ? "block" : "none" }}>

@@ -78,22 +78,22 @@
     text-align: right !important;
 }
 
-.col-sm-10 button {
-    background-color: #000;
+.col-sm-10 Button {
     border-color: #D9E01E;
     color: #D9E01E;
     /* margin: 10px 0 0 auto; */
 }
 
-.col-sm-10 button:hover {
-    background-color: #000 !important;
-    border-color: #9a9e18;
-    color: #9a9e18 !important;
+.col-sm-10 Button:hover {
+    background-color: #D9E01E !important;
+    box-shadow: 0 0 5px 0 #D9E01E;
+    color: #000 !important;
     /* margin: 10px 0 0 auto; */
 }
 
-.col-sm-10 button:active{
-    background: #9a9e18 !important;
+.col-sm-10 Button:active {
+    background: #787b11 !important;
+    border-color: #787b11;
 }
 
 @media (max-width: 1300px) {

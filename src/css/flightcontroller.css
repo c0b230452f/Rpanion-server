@@ -4,13 +4,17 @@
     margin-right: 10px;
     color: #D9E01E !important;
     border-color: #D9E01E !important;
-    background-color: #000 !important;
 }
 
 #flightButtons Button:hover {
-    color: #9a9e18 !important;
-    border-color: #9a9e18 !important;
-    background-color: #000 !important;
+    color: #000 !important;
+    border-color: #D9E01E !important;
+    background-color: #D9E01E !important;
+}
+
+#flightButtons Button:active {
+    border-color: #787d11;
+    background-color: #787d11;
 }
 
 #flightButtons {

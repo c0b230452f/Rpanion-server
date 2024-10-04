@@ -72,16 +72,20 @@
 .btn {
     width: 40%;
     text-align: center;
-    background-color: #D9E01E !important;
     border-color: #D9E01E !important;
-    color: #000 !important;
+    color: #D9E01E !important;
     margin: 15px auto;
 }
 
 .btn:hover {
-    background-color: #787b11 !important;
-    border-color: #787b11 !important;
-    color: #ffffff !important;
+    background-color: #D9E01E !important;
+    border-color: #D9E01E !important;
+    color: #000 !important;
+}
+
+.btn:active {
+    background-color: #787b11;
+    border-color: #787b11;
 }
 
 

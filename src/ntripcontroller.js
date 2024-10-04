@@ -126,7 +126,7 @@ class NTRIPPage extends basePage {
 
           <div className="form-group row">
             <div className="col-sm-10 enableButton">
-              <Button onClick={this.handleNTRIPSubmit} className="btn btn-primary">{this.state.active === true ? "Disable" : "Enable"}</Button>
+              <Button variant='outlined' onClick={this.handleNTRIPSubmit} className="btn btn-primary">{this.state.active === true ? "Disable" : "Enable"}</Button>
             </div>
           </div>
         </Form>
