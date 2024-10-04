@@ -226,7 +226,7 @@ class SchedulePage extends basePage {
               </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={this.handleClose}>
+              <Button variant="primary" onClick={this.handleClose}>
                 閉じる
               </Button>
               <Button variant="primary" type="submit">
