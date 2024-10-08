@@ -80,6 +80,7 @@
 
 .edButton {
     /* background-color: #000; */
+    --bs-btn-bg: transparent;
     border-color: #D9E01E;
     color: #D9E01E;
     /* margin: 10px 0 0 auto; */
